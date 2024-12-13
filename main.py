@@ -11,6 +11,7 @@ def menu():
         print("5 - Ordenar inventario por cantidad")
         print("6 - Actualizar producto")
         print("7 - Actualizar inventario")
+        print("8 - Mappear precios (Con aumento del 10%)")
         print("0 - Salir")
         opcion = input("Ingresa una opcion ")
         match opcion:
@@ -52,6 +53,13 @@ def menu():
             case '7':
                 if inventario:
                     actualizar_inventario(producto_actualizado,inventario)
+                else:
+                    print("Error, no es posible utilizar esta opcion si no se leyo el archivo inventario.csv anteriormente")
+            case '8':
+                if inventario:
+                    inventario_mapeado = mapear_precios(inventario)
+                    for productos in inventario_mapeado:
+                        print(productos)
                 else:
                     print("Error, no es posible utilizar esta opcion si no se leyo el archivo inventario.csv anteriormente")
             case '0':

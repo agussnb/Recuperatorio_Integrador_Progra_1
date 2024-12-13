@@ -110,6 +110,14 @@ def actualizar_inventario(producto_actualizado: dict, inventario: list):
             escritor.writerow([item['nombre'], item['precio'], item['cantidad']])
 
     print(f"El inventario ha sido actualizado en {nombre_archivo}. ")
+    
+def mapear_precios(inventario):
+    for producto in inventario:
+        producto['precio'] = float(producto['precio']) * 1.10
+    return inventario
+
+
+    
         
 
 
