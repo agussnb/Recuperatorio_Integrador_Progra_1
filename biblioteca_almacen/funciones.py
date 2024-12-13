@@ -44,7 +44,7 @@ def ordenar_inventario_por_precio(inventario:list):
     for i in range(n):
         swap = False
         for j in range(0, n-i-1):
-            if inventario[j]['precio'] > inventario[j+1]['precio']:
+            if float(inventario[j]['precio']) > float(inventario[j+1]['precio']):
                 inventario[j], inventario[j+1] = inventario[j+1], inventario[j]
                 swap = True
         if not swap:
@@ -62,7 +62,7 @@ def ordenar_inventario_por_cantidad(inventario:list):
     for i in range(n):
         swap = False
         for j in range(0, n-i-1):
-            if inventario[j]['cantidad'] > inventario[j+1]['cantidad']:
+            if int(inventario[j]['cantidad']) < int(inventario[j+1]['cantidad']):
                 inventario[j], inventario[j+1] = inventario[j+1], inventario[j]
                 swap = True
         if not swap:
@@ -102,11 +102,12 @@ def actualizar_inventario(producto_actualizado: dict, inventario: list):
         if item['nombre'] == producto_actualizado['nombre']:
             item['cantidad'] = producto_actualizado['cantidad']  
 
-    with open(nombre_archivo, 'w') as archivo_csv:
-        campos = ['nombre', 'precio', 'cantidad'] 
-        escritor = csv.DictWriter(archivo_csv, fieldnames=campos)
-        escritor.writeheader()  
-        escritor.writerows(inventario)  
+    with open(nombre_archivo, 'w', newline='') as archivo_csv:
+        escritor = csv.writer(archivo_csv)
+        escritor.writerow(['nombre', 'precio', 'cantidad'])
+
+        for item in inventario:
+            escritor.writerow([item['nombre'], item['precio'], item['cantidad']])
 
     print(f"El inventario ha sido actualizado en {nombre_archivo}. ")
         

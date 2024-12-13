@@ -1,4 +1,4 @@
-Nombre,Precio,Cantidad
+nombre,precio,cantidad
 Sal de Mesa,0.99,400
 Platanos,1.25,400
 Tacos de Carne,1.5,400
@@ -42,7 +42,7 @@ Leche Condensada,3.49,130
 Cereal Quaker,4.2,130
 Salmon en Lata,2.5,120
 Frijoles Negros,2.99,120
-Aspirina 500mg,4.99,120
+Aspirina 500mg,4.99,118
 Pechuga de Pavo,4.99,110
 Arandanos,3.99,100
 Mantequilla,4.5,100
